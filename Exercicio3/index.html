@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.header{
+			width: 100px;
+			height: 50px;
+			border: 2px solid black;
+		}
+	</style>
+</head>
+<body>
+<div class="header"></div>	
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>	
+<script>
+	$(function(){
+		function verificaTamanhoEAplicaCor() {
+			var tamanhoTela =$(window).width();
+			if (tamanhoTela < 580) {
+				$('.header').css('backgroud','blue');
+			}
+			else if (tamanhoTela < 768) {
+				$('.header').css('backgroud','red');
+			}else if (tamanhoTela < 1024) {
+				$('.header').css('backgroud','green');
+			}else{
+				$('.header').css('backgroud','white');
+			}
+		}
+
+		verificaTamanhoEAplicaCor();
+
+		setInterval(function(){
+			verificaTamanhoEAplicaCor();
+		},3000);
+
+		$(window).resize(function(){
+			verificaTamanhoEAplicaCor();
+		})
+	})
+</script>
+</body>
+</html>
